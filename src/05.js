@@ -13,7 +13,7 @@ const connection = mysql.createConnection(dbinfo);
 connection.connect();
 
 // QUERY :: READING THE VLAUE FROM COMMAND LINE USING ARGUMENT
-const user = { username: procss.argv[2], password: procss.argv[3] };
+const user = { username: procss.argv[3], password: procss.argv[2] };
 let sql = `INSERT INTO user (username, password) values ("${user.username}", "${user.password}")`;
 connection.query(sql);
 

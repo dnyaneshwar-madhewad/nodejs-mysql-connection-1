@@ -18,6 +18,6 @@ const addUser = (user) => {
 };
 
 // CALLING THE METHOD
-const user = { username: "ABCD", password: "asdfadfasf" };
+const user = { username: "dny", password: "sky" };
 addUser(user);
 // addUser({ ...user, username: "pqrs" });

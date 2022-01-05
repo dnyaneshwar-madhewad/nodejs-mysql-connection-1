@@ -6,13 +6,16 @@ const dbinfo = {
     database: "day1",
   };
 
-  const checkconnection = () => {
-
+  const checkConnection = () => {
     const connection = mysql.createConnection(dbinfo);
+  
+    // ASYNC
     connection.connect();
-    console.log("USER ADDED");
-
+  
+    console.log("CONNECTION SUCCESS");
+  
+    // ASYNC
     connection.end();
-
   };
-  checkconnection.end();
+  
+  checkConnection();
