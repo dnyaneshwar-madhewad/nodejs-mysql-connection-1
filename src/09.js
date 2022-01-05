@@ -1,21 +1,25 @@
 const mysql = require("mysql");
-var Promise = require("bluebird");
+const Promise = require("bluebird");
 Promise.promisifyAll(require("mysql/lib/Connection").prototype);
+
 const dbinfo = {
-    host: "localhost", // location of the database.
-    user: "root",
-    password: "cdac",
-    database: "day1",
-  };
+  host: "localhost", // location of the database.
+  user: "root",
+  password: "cdac",
+  database: "day1",
+};
 
-  const checkconnection = () => {
+const checkConnection = async () => {
+  const connection = mysql.createConnection(dbinfo);
 
-    const connection = mysql.createConnection(dbinfo);
+  // ASYNC
+  await connection.connectAsync();
 
-   await connection.connectAsync();
-    console.log("USER ADDED");
+  // ...
+  console.log("CONNECTION SUCCESS");
 
-    connection.endAsync();
+  // ASYNC
+  await connection.endAsync();
+};
 
-  };
-  checkconnection.end();
+checkConnection();
